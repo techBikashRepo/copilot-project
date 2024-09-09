@@ -1,0 +1,53 @@
+.left-panel {
+  width: 100%;
+}
+
+.category {
+  margin-bottom: 10px;
+}
+
+.category h3 {
+  cursor: pointer;
+  padding: 10px;
+  margin: 0;
+  color: #fff;
+}
+
+.category ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.category li {
+  cursor: pointer;
+  padding: 8px 10px;
+  border-bottom: 1px solid #34495e;
+  color: #fff;
+}
+
+.category li:hover {
+  background-color: #3b5998;
+}
+
+.category li.selected {
+  background-color: #3b5998;
+  font-weight: bold;
+}
+
+/* Background colors for each category */
+.category1 {
+  background-color: #3498db; /* Blue */
+}
+
+.category2 {
+  background-color: #e74c3c; /* Red */
+}
+
+.category3 {
+  background-color: #2ecc71; /* Green */
+}
+
+.category4 {
+  background-color: #f1c40f; /* Yellow */
+}

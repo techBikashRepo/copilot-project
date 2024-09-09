@@ -1,37 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./App.css";
-import Home from "./component/Home";
-import About from "./component/About";
-import Contact from "./component/Contact";
-import { AccessProvider } from "./common/AccessContext";
+import LeftPanel from "./LeftPanel";
+import FileList from "./FileList";
 
 const App = () => {
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+
+  const handleSelectSubcategory = (subcategory) => {
+    setSelectedSubcategory(subcategory);
+  };
+
   return (
-    <AccessProvider>
-      <Router>
-        <div className="App">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
-          </nav>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
-      </Router>
-    </AccessProvider>
+    <div className="app">
+      <div className="left-panel-container">
+        <LeftPanel onSelectSubcategory={handleSelectSubcategory} />
+      </div>
+      <div className="file-list-container">
+        {selectedSubcategory ? (
+          <FileList subcategory={selectedSubcategory} />
+        ) : (
+          <div className="placeholder">Select a subcategory to view files</div>
+        )}
+      </div>
+    </div>
   );
 };
 
