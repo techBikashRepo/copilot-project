@@ -1,15 +1,16 @@
 .file-list {
-  background-color: #ecf0f1;
+  background-color: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .file-list h2 {
   margin-top: 0;
-  color: #2c3e50;
+  color: #343a40;
   font-size: 1.5em;
-  border-bottom: 2px solid #bdc3c7;
+  border-bottom: 2px solid #dee2e6;
   padding-bottom: 10px;
 }
 
@@ -23,32 +24,35 @@
   padding: 10px;
   margin: 5px 0;
   background-color: #ffffff;
-  border: 1px solid #bdc3c7;
+  border: 1px solid #dee2e6;
   border-radius: 4px;
   transition: background-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .file-list li:hover {
-  background-color: #bdc3c7;
+  background-color: #e9ecef;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .context-menu {
   position: absolute;
   background-color: #ffffff;
-  border: 1px solid #bdc3c7;
+  border: 1px solid #dee2e6;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  animation: fadeIn 0.3s ease;
 }
 
 .context-menu-item {
   padding: 10px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .context-menu-item:hover {
-  background-color: #bdc3c7;
+  background-color: #e9ecef;
 }
 
 .context-submenu {
@@ -59,7 +63,7 @@
   left: 100%;
   top: 0;
   background-color: #ffffff;
-  border: 1px solid #bdc3c7;
+  border: 1px solid #dee2e6;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: none;
@@ -67,4 +71,15 @@
 
 .context-menu-item:hover .context-submenu {
   display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

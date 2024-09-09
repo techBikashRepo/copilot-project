@@ -12,7 +12,14 @@ const initialFiles = {
   Subcategory8: ["file15.rb", "file16.go"],
 };
 
-const FileList = ({ subcategory }) => {
+const categories = {
+  Category1: ["Subcategory1", "Subcategory2"],
+  Category2: ["Subcategory3", "Subcategory4"],
+  Category3: ["Subcategory5", "Subcategory6"],
+  Category4: ["Subcategory7", "Subcategory8"],
+};
+
+const FileList = ({ subcategory, category }) => {
   const [files, setFiles] = useState(initialFiles);
   const [contextMenu, setContextMenu] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -78,7 +85,7 @@ const FileList = ({ subcategory }) => {
           <div className="context-menu-item">
             Move to
             <ul className="context-submenu">
-              {Object.keys(files).map(
+              {categories[category]?.map(
                 (sub) =>
                   sub !== subcategory && (
                     <li key={sub} onClick={() => handleMoveFile(sub)}>

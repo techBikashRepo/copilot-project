@@ -6,10 +6,6 @@ const categories = {
   Category2: ["Subcategory3", "Subcategory4"],
   Category3: ["Subcategory5", "Subcategory6"],
   Category4: ["Subcategory7", "Subcategory8"],
-  Category5: ["Subcategory9", "Subcategory10"],
-  Category6: ["Subcategory11", "Subcategory12"],
-  Category7: ["Subcategory13", "Subcategory14"],
-  Category8: ["Subcategory15", "Subcategory16"],
 };
 
 const LeftPanel = ({ onSelectSubcategory }) => {
@@ -20,9 +16,9 @@ const LeftPanel = ({ onSelectSubcategory }) => {
     setExpandedCategory(expandedCategory === category ? null : category);
   };
 
-  const handleSubcategoryClick = (subcategory) => {
+  const handleSubcategoryClick = (subcategory, category) => {
     setSelectedSubcategory(subcategory);
-    onSelectSubcategory(subcategory);
+    onSelectSubcategory(subcategory, category);
   };
 
   return (
@@ -38,7 +34,7 @@ const LeftPanel = ({ onSelectSubcategory }) => {
                   className={
                     selectedSubcategory === subcategory ? "selected" : ""
                   }
-                  onClick={() => handleSubcategoryClick(subcategory)}
+                  onClick={() => handleSubcategoryClick(subcategory, category)}
                 >
                   {subcategory}
                 </li>

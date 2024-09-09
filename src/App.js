@@ -5,9 +5,11 @@ import FileList from "./FileList";
 
 const App = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const handleSelectSubcategory = (subcategory) => {
+  const handleSelectSubcategory = (subcategory, category) => {
     setSelectedSubcategory(subcategory);
+    setSelectedCategory(category);
   };
 
   return (
@@ -17,7 +19,10 @@ const App = () => {
       </div>
       <div className="file-list-container">
         {selectedSubcategory ? (
-          <FileList subcategory={selectedSubcategory} />
+          <FileList
+            subcategory={selectedSubcategory}
+            category={selectedCategory}
+          />
         ) : (
           <div className="placeholder">Select a subcategory to view files</div>
         )}
